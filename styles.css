@@ -25,7 +25,11 @@ nav > div {
     justify-content: space-between;
 }
 
-#nav-links > button {
+#nav-links > div {
+    margin-left: 20px;
+}
+
+#nav-links button {
     margin: 5px 5%;
     padding: 2px 20px;
     background-color: #02c39A;
@@ -98,4 +102,69 @@ nav > div {
     border: 3px solid #02c39A;
     color: #fff;
     font-weight: bold;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+}
+
+.login-page,
+.signup-page {
+    border: 1px solid grey;
+    border-top: none;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container h3{
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: fit-content;
+}
+
+.login-container input {
+    width: 70%;
+    height: 30px;
+    margin: 0 10% 30px 10%;
+    padding: 0 5%;
+}
+
+.login-container form > button {
+    margin: 0 35%;
+    width: 30%;
+    height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #02c39A;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.login-container form > button:hover {
+    background-color: #028090;
+}
+
+.login-container button {
+    width: 26%;
+    margin: 50px 37% 0 37%;
+    background-color: transparent;
+    color: #028090;
+    border: 1px solid #028090;
+    border-radius: 5px;
+}
+
+.login-container button:hover {
+    background-color: #028090;
+    color: #fff;
 }
