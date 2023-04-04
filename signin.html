@@ -22,21 +22,21 @@
     <div class="login-container">
         <div class="login-page" id="login">
             <h3>Войти</h3>
-            <form>
-                <input type="text" placeholder="Логин/Почта... ">
-                <input type="password" placeholder="Пароль...">
-                <button>Войти</button>
+            <form action="inc/login.inc.php">
+                <input name="login-login" type="text" placeholder="Логин/Почта... ">
+                <input name="login-pwd" type="password" placeholder="Пароль...">
+                <button name="submit-login">Войти</button>
             </form>
             <button class="page" data-page="signup">Создать аккаунт</button>
         </div>
         <div class="signup-page" id="signup">
             <h3>Зарегестрироваться</h3>
-            <form>
-                <input type="text" placeholder="Логин... ">
-                <input type="text" placeholder="Почта... ">
-                <input type="password" placeholder="Пароль... ">
-                <input type="password" placeholder="Повторить пароль... ">
-                <button>Создать</button>
+            <form action="inc/signup.inc.php">
+                <input name="signup-login" type="text" placeholder="Логин... ">
+                <input name="signup-pwd" type="password" placeholder="Пароль... ">
+                <input name="signup-pwdPRT" type="password_rpt" placeholder="Повторить пароль... ">
+                <input name="signup-email" type="email" placeholder="Почта... ">
+                <button name="submit-signup">Создать</button>
             </form>
             <button class="page" data-page="login">Войти в аккаунт</button>
         </div>
