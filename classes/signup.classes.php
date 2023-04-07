@@ -10,7 +10,7 @@ class Signup
     private $password;
     private $password_rpt;
 
-    public function __construct($login, $email, $password, $password_rpt) 
+    public function __construct($login, $email, $password, $password_rpt)
     {
         $this->login = $login;
         $this->email = $email;
@@ -35,6 +35,8 @@ class Signup
             exit();
         }
 
+        include "../inc/db.inc.php";
+
         if ($this->loginTaken()) {
             header("location:../signin.html?error=logintaken");
             exit();
@@ -45,43 +47,50 @@ class Signup
             exit();
         }
 
+        signupUser($this->login, $this->email, $this->password);
+        header("location:../signin.html?error=none");
+        exit();
     }
 
-    private function checkNoEmptyFields() {
+    private function checkNoEmptyFields()
+    {
         if (empty($this->login) or empty($this->email) or empty($this->password) or empty($this->password_rpt)) {
             $result = true;
-        }
-        else {
+        } else {
             $result = false;
         }
         return $result;
     }
 
-    private function invalidEmail() {
-        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
-            $return = false;
-        }
-        else {
+    private function invalidEmail()
+    {
+        if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+            $result = false;
+        } else {
             $result = true;
         }
         return $result;
     }
 
-    private function passwordsMatch() {
+    private function passwordsMatch()
+    {
         if ($this->password == $this->password_rpt) {
             $result = true;
-        }
-        else {
+        } else {
             $result = false;
         }
         return $result;
     }
 
-    private function loginTaken() {
-        // TODO
+    private function loginTaken()
+    {
+        $result = checkLoginTaken($this->login);
+        return $result;
     }
 
-    private function emailTaken() {
-        // TODO
+    private function emailTaken()
+    {
+        $result = checkEmailTaken($this->email);
+        return $result;
     }
 }
