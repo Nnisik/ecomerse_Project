@@ -1,41 +1,87 @@
 <?php
 
-class Signup extends Dbh {
+include "../inc/db.inc.php";
 
-    protected function checkUser($uid, $email) 
+class Signup
+{
+
+    private $login;
+    private $email;
+    private $password;
+    private $password_rpt;
+
+    public function __construct($login, $email, $password, $password_rpt) 
     {
-        $stmt = $this->connect()->prepare('SELECT uid FROM users WHERE uid = ? OR umail = ?;');
-
-        if(!$stmt->execute(array($uid, $email))) 
-        {
-            $stmt = null;
-            header("location: ../signin.html?error=stmtfailed");
-            exit();
-        }
-
-        if($stmt->rowCount() > 0) 
-        {
-            $resultCheck = false;
-        }
-        else
-        {
-            $resultCheck = true;
-        }
-        return $resultCheck;
+        $this->login = $login;
+        $this->email = $email;
+        $this->password = $password;
+        $this->password_rpt = $password_rpt;
     }
 
-    protected function setUser($login, $email, $pwd) 
+    public function signupUser()
     {
-        $stmt = $this->connect()->prepare('INSERT INTO users (ulogin, umail, upassword) VALUES (?,?,?);');
-
-        $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
-
-        if(!$stmt->execute(array($login, $email, $hashedPwd))) 
-        {
-            $stmt = null;
-            header("location: ../signin.html?error=stmtfailed");
+        if ($this->checkNoEmptyFields()) {
+            header("location: ../signin.html&error=emptyfieldsleft");
             exit();
         }
-        $stmt = null;
+
+        if ($this->invalidEmail()) {
+            header("location:../sigin.html?error=invalidemail");
+            exit();
+        }
+
+        if ($this->passwordsMatch()) {
+            header("location:../signin.html?error=passwordsdontmatch");
+            exit();
+        }
+
+        if ($this->loginTaken()) {
+            header("location:../signin.html?error=logintaken");
+            exit();
+        }
+
+        if ($this->emailTaken()) {
+            header("location:../signin.html?error=emailtaken");
+            exit();
+        }
+
+    }
+
+    private function checkNoEmptyFields() {
+        if (empty($this->login) or empty($this->email) or empty($this->password) or empty($this->password_rpt)) {
+            $result = true;
+        }
+        else {
+            $result = false;
+        }
+        return $result;
+    }
+
+    private function invalidEmail() {
+        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+            $return = false;
+        }
+        else {
+            $result = true;
+        }
+        return $result;
+    }
+
+    private function passwordsMatch() {
+        if ($this->password == $this->password_rpt) {
+            $result = true;
+        }
+        else {
+            $result = false;
+        }
+        return $result;
+    }
+
+    private function loginTaken() {
+        // TODO
+    }
+
+    private function emailTaken() {
+        // TODO
     }
 }
