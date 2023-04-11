@@ -12,8 +12,11 @@
 <body>
     <nav>
         <div id="nav-links">
-            <button id="nav-links-signin"><a href="signin.html">Войти</a></button>
-            <button id="nav-links-cart"><a>Cart</a></button>
+            <div id="nav-links">
+                <button id="nav-links-user"><a id="user-button" href="profile.html">User</a></button>
+                <button id="nav-links-signin"><a href="signin.html?page=login">Войти</a></button>
+                <button id="nav-links-cart"><a href="user-cart.html">Cart</a></button>
+            </div>
         </div>
         <div id="nav-search">
             <div class="icon">Commerse</div>
@@ -40,7 +43,7 @@
     </nav>
     <div id="container">
     </div>
-    <script src="script.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>

@@ -12,14 +12,14 @@
 <body>
     <nav>
         <div id="nav-links">
-            <button id="nav-links-signin">Войти</button>
-            <button id="nav-links-cart">Cart</button>
+            <button id="nav-links-back"><a id="button-back" href="index.html">back</a></button>
+            <button id="nav-links-signin"><a href="signin.html">Войти</a></button>
         </div>
     </nav>
     <div class="login-container">
         <div class="login-page" id="login">
             <h3>Войти</h3>
-            <form action="inc/login.inc.php">
+            <form action="inc/login.inc.php" method="post">
                 <input name="login" type="text" placeholder="Логин... ">
                 <input name="pwd" type="password" placeholder="Пароль... ">
                 <button name="submit" type="submit">Создать</button>
@@ -27,8 +27,8 @@
             <button class="page" data-page="signup">Создать аккаунт</button>
         </div>
         <div class="signup-page" id="signup">
-            <h3>Зарегестрироваться</h3>
-            <form action="inc/signup.inc.php">
+            <h3>Зарегистрироваться</h3>
+            <form action="inc/signup.inc.php" method="post">
                 <input name="login" type="text" placeholder="Логин... ">
                 <input name="pwd" type="password" placeholder="Пароль... ">
                 <input name="pwdPRT" type="password" placeholder="Повторить пароль... ">
@@ -38,7 +38,7 @@
             <button class="page" data-page="login">Войти в аккаунт</button>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="js/signin.js"></script>
 </body>
 
 </html>

@@ -174,3 +174,79 @@ nav > div {
     background-color: #028090;
     color: #fff;
 }
+
+.user-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid grey;
+    border-top: none;
+    width: 60%;
+    margin: 0 20%;
+}
+
+.user-container-info {
+    padding: 20px 9%;
+    border-bottom: 1px solid gray;
+}
+
+.user-container-goods {
+    display: flex;
+    flex-direction: column;
+}
+
+#user-container-new {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-bottom: 1px solid gray;
+}
+
+#user-container-new > h3 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+#user-container-new > div > div > input {
+    margin: 15px 0;
+    width: 86%;
+    padding: 10px 10px 100px 10px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+#new-create {
+    margin-bottom: 10px;
+    width: 150px;
+    height: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background-color: #02c39A;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#new-create:hover {
+    background-color: #028090;
+}
+
+#goods {
+    background-color: red;
+    width: 80%;
+    margin: 10px 0;
+}
+
+.good {
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    margin-bottom: 10px;
+    background-color: pink;
+    border: 1px solid grey;
+    padding: 10px;
+}
