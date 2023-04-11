@@ -8,6 +8,11 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector("#nav-links-user").style.display = "none";
     }
 
+    document.querySelector("#nav-links-user").onclick = function() {
+        let userId = urlParams.get("id");
+        location.href = `profile.html?id=${userId}`;
+    }
+
     // TODO 
     // learn node (edx) and connect node server & read from db to read from db + use php in it
 });

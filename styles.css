@@ -46,6 +46,7 @@ nav > div {
 #nav-links button:hover {
     border: 1px solid #028090;
     background-color: #fff;
+    color:#028090;
 }
 
 #nav-links a:hover {
@@ -184,9 +185,18 @@ nav > div {
     margin: 0 20%;
 }
 
+.user-container-info > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-bottom: 15px;
+} 
+
 .user-container-info {
     padding: 20px 9%;
     border-bottom: 1px solid gray;
+    display: flex;
+    flex-direction: row;
 }
 
 .user-container-goods {
@@ -237,16 +247,16 @@ nav > div {
 
 #goods {
     background-color: red;
-    width: 80%;
+    width: 90%;
     margin: 10px 0;
 }
 
 .good {
     display: flex;
     flex-direction: row;
+    height: 50px;
     background-color: #fff;
     margin-bottom: 10px;
-    background-color: pink;
     border: 1px solid grey;
     padding: 10px;
 }

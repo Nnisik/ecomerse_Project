@@ -7,7 +7,9 @@ if (isset($_POST["submit"])) {
     $password = $_POST["pwd"];
 
     if (userNotExist($login)) {
-        header("location:../signin.html?error=userdoesntexist");
+        print($login);
+        print(userNotExist($login));
+        // header("location:../signin.html?error=userdoesntexist");
     }
 
     if (wrongPassword($login, $password)) {
@@ -15,6 +17,6 @@ if (isset($_POST["submit"])) {
     }
 
     $uid = loginUser($login, $password);
-    $header = "location:./index.html?error=none&id=" + $uid;
-    header($header);
+    $header = "location:../index.html?error=none&id=";
+    header($header .= (string)$uid);
 }

@@ -37,17 +37,14 @@ function signupUser($login, $email, $password)
 
 function userNotExist($login)
 {
-    global $db;
-    $sql = $db->prepare("SELECT * FROM users WHERE ulogin = ?;");
-    $sql->execute([$login]);
-    $result = $sql->fetchAll();
-    print("result");
-
-    if (count($result) == 0) {
-        return false;
-    } else {
-        return true;
+    global $users;
+    $result = false;
+    foreach ($users as $user) {
+        if ($user["ulogin"] == $login) {
+            $result = true;
+        }
     }
+    return $result;
 }
 
 function wrongPassword($login, $password)
@@ -57,8 +54,7 @@ function wrongPassword($login, $password)
         if ($user["ulogin"] == $login or $user["umail"] ==  $login) {
             if ($user["upassword"] != $password) {
                 return true;
-            }
-            else {
+            } else {
                 return false;
             }
         }
@@ -69,9 +65,8 @@ function wrongPassword($login, $password)
 
 function loginUser($login, $password)
 {
-    // TODO
     global $users;
-    foreach($users as $user) {
+    foreach ($users as $user) {
         if ($user["ulogin"] == $login and $user["upassword"] == $password) {
             $result = $user["uid"];
         }
@@ -89,5 +84,3 @@ $users = $sql->fetchAll();
 $sql = $db->prepare("SELECT * FROM goods");
 $sql->execute();
 $goods = $sql->fetchAll();
-
-// print_r($users[0]["ulogin"]);

@@ -12,21 +12,24 @@
 <body>
     <nav>
         <div id="nav-links">
-            <button id="nav-links-back"><a href="index.html"><</a></button>
+            <button id="nav-links-back"><</button>
             <button id="nav-links-cart"><a href="user-cart.html">Cart</a></button>
         </div>
     </nav>
     <div class="user-container">
         <div class="user-container-info">
-            <h3>User name</h3>
-            <p>email</p>
+            <img class="user-icon" src="img/profile-img.png">
+            <div>
+                <h3>User name</h3>
+                <p>email</p>
+            </div>
         </div>
         <div class="user-container-goods">
             <div id="user-container-new">
                 <h3>Новое объявление</h3>
                 <div>
-                    <input type="text" placeholder="Название">
-                    <select>
+                    <input type="text" placeholder="Название" id="goods-new-name">
+                    <select id="goods-new-cat">
                         <option value="">Категория</option>
                         <option value="electronics">Электроника</option>
                         <option value="kids">Детские товары</option>
@@ -39,9 +42,9 @@
                         <option value="sport">Спортивные товары</option>
                         <option value="home">Товары для дома</option>
                     </select>
-                    <input type="text" placeholder="Цена">
+                    <input type="text" placeholder="Цена" id="goods-new-price">
                     <div>
-                        <input type="text" placeholder="Описание">
+                        <input type="text" placeholder="Описание" id="goods-new-desc">
                     </div>
                 </div>
                 <div class="center">
@@ -54,22 +57,9 @@
                         <img>
                         <div>
                             <h5>Название</h5>
-                            <p>Описание</p>
+                            <p>Цена</p>
                         </div>
-                    </div>
-                    <div class="good">
-                        <img>
-                        <div>
-                            <h5>Название</h5>
-                            <p>Описание</p>
-                        </div>
-                    </div>
-                    <div class="good">
-                        <img>
-                        <div>
-                            <h5>Название</h5>
-                            <p>Описание</p>
-                        </div>
+                        <p>Описание</p>
                     </div>
                 </div>
             </div>
