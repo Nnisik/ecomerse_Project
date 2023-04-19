@@ -9,6 +9,10 @@ body {
     color: #333333;
 }
 
+button, a {
+    cursor: pointer;
+}
+
 nav {
     display: flex;
     flex-direction: column;
@@ -58,6 +62,11 @@ nav > div {
     flex-direction: row;
     justify-content: center;
     padding: 10px 0;
+}
+
+.hidden {
+    background-color: transparent;
+    color: transparent;
 }
 
 .icon {
@@ -246,17 +255,27 @@ nav > div {
 }
 
 #goods {
-    background-color: red;
     width: 90%;
     margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .good {
+    margin-bottom: 10px;
+    width: 96%;
+    height: fit-content;
     display: flex;
     flex-direction: row;
-    height: 50px;
-    background-color: #fff;
-    margin-bottom: 10px;
-    border: 1px solid grey;
-    padding: 10px;
+    border: 1px solid black;
+    padding: 2%;
+}
+
+.good-info > h5 {
+    font-size: 24px;
+}
+
+.good-info > h6 {
+    font-size: 12px;
 }
