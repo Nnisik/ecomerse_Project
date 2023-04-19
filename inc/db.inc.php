@@ -1,5 +1,7 @@
 <?php
 
+include "json.inc,php";
+
 function checkLoginTaken($login)
 {
     global $db;
@@ -68,9 +70,17 @@ function loginUser($login, $password)
     global $users;
     foreach ($users as $user) {
         if ($user["ulogin"] == $login and $user["upassword"] == $password) {
-            $result = $user["uid"];
+            return $user["uid"];
         }
-        return $result;
+    }
+}
+
+function getUserEmail($id) {
+    global $users;
+    foreach($users as $user) {
+        if ($user["uid"] == $id) {
+            return $user["umail"];
+        }
     }
 }
 

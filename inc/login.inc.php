@@ -18,5 +18,7 @@ if (isset($_POST["submit"])) {
 
     $uid = loginUser($login, $password);
     $header = "location:../index.html?error=none&id=";
+
+    $email = getUserEmail($uid);
     header($header .= (string)$uid);
 }
