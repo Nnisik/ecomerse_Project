@@ -32,4 +32,4 @@ function clearUserJSONfile() {
 
 $userJsonArray = [];
 $userJsonArray = [];
-print_r($userJsonArray);
+// print_r($userJsonArray);

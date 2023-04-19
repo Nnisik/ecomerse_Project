@@ -1,6 +1,6 @@
 <?php
 
-include "json.inc,php";
+include "json.inc.php";
 
 function checkLoginTaken($login)
 {
@@ -75,13 +75,21 @@ function loginUser($login, $password)
     }
 }
 
-function getUserEmail($id) {
+function getUserEmail($id)
+{
     global $users;
-    foreach($users as $user) {
+    foreach ($users as $user) {
         if ($user["uid"] == $id) {
             return $user["umail"];
         }
     }
+}
+
+function addnewProduct($name, $s_id, $desc, $price, $cat)
+{
+    global $db;
+    $sql = $db->prepare("INSERT INTO goods (name, seller_id, descrip, price, cat) VALUES (?,?,?,?,?);");
+    $sql->execute([$name, $s_id, $desc, $price, $cat]);
 }
 
 $db = new PDO('sqlite:../db.db');
@@ -91,6 +99,11 @@ $sql = $db->prepare("SELECT * FROM users");
 $sql->execute();
 $users = $sql->fetchAll();
 
+// addnewProduct("Клавиатура", 1, "Механическая клавиатура, 100 клавиш", 2610, "electronics");
+
 $sql = $db->prepare("SELECT * FROM goods");
 $sql->execute();
 $goods = $sql->fetchAll();
+print("---");
+print_r($goods);
+// foreach ($goods as $product) {print_r($product);}
